@@ -1,0 +1,3 @@
+VCSoC_top_cv32e40s_if_c_obi__Tz12_TBz13__DepSet_hf74ebc23__0.o: \
+ VCSoC_top_cv32e40s_if_c_obi__Tz12_TBz13__DepSet_hf74ebc23__0.cpp \
+ VCSoC_top__pch.h VCSoC_top_cv32e40s_if_c_obi__Tz12_TBz13.h

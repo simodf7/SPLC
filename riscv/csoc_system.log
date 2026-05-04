@@ -1,0 +1,547 @@
+[SM] Starting... SM root secret: 0x3AAD9BA9B353B6D3A19EE43EB7248AB10DE725657ADDEDFA1D688E5AEBEAE9E3
+[SM] Device MUD URL: https://manufacturer.com/device-mudfile
+[CRYPTO] New derived key. 
+Id: enclavekey;
+ Secret: 0x3BAA7A51B70FC045DE70AAA838056232060AE0641BD5A26782AEBC1C749CDC47003E364A360A61735263CA414FA1DDFF53AB8D83F9425A34DB4C2B86A9D871A7
+[CRYPTO] New derived key. 
+Id: asekey;
+ Secret: 0xB7272E74228F8E27F0339CBFD84728BE0C3291E81FAE22CCE3F6C7B95FF3B56149769D0A7CD69050C9E34D43558CEEF6508AF00CCD1E9FFE935D1B997456B666
+[SM] Secure Monitor Core initialisation completed!
+[SM] Binded 0x240000 of size 16384
+[SM] Unbinded SE area
+[SM] ASE boot completed, continuing to user initialisations...
+EAP Enclave shared memory address: 0x238400, size: 1024
+KDP Enclave shared memory address: 0x238800, size: 1024
+
+==================================================        AK-KDK DERIVATION TEST STARTED            ==================================================
+1 Key id: auth_key
+2 Key id: key_deriv_key
+[SM] Binded 0x244000 of size 4096
+[CRYPTO HW DEBUG - KEY DERIVATION SM FUNCTION ENTERED]
+[ECALL KEY DERIVATION MCTR - AUTHORIZATION CHECKED]
+[ECALL KEY DERIVATION MCTR - PTR SANITY CHECKED]
+[CRYPTO HW DEBUG - KEY DERIVATION MCTR CRYPTO FUNCTION ENTERED]
+[CRYPTO-HW-DEBUG] derive_key_mctr: Output Length to generate is 32 byte
+[CRYPTO] New derived key. 
+Id: auth_key;
+ Secret: 0x90CFFD4B429B94715C68C9D80B3E44A6000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+[CRYPTO] New derived key. 
+Id: key_deriv_key;
+ Secret: 0x4435C4FC394AA54D84440657DEF55332000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+[SM] Unbinded SE area
+[USER][HW-RUN AK-KDK Derivation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN AK-KDK Derivation] retval from SE: 0
+
+==================================================        AK-KDK DERIVATION TEST COMPLETED          ==================================================
+
+==================================================        TEK-MSK DERIVATION TEST STARTED           ==================================================
+1 Key id: tek_key
+2 Key id: msk_key
+[SM] Binded 0x244000 of size 4096
+[SM] Unbinded SE area
+[USER][HW-RUN] RAND_P Generated: 0xCCD10000187D0000F53000007E9E0000
+[SM] Binded 0x244000 of size 4096
+[CRYPTO HW DEBUG - KEY DERIVATION SM FUNCTION ENTERED]
+[ECALL KEY DERIVATION MCTR - AUTHORIZATION CHECKED]
+[ECALL KEY DERIVATION MCTR - PTR SANITY CHECKED]
+[CRYPTO HW DEBUG - KEY DERIVATION MCTR CRYPTO FUNCTION ENTERED]
+[CRYPTO-HW-DEBUG] derive_key_mctr: Output Length to generate is 80 byte
+[CRYPTO] New derived key. 
+Id: tek_key;
+ Secret: 0xD0F59ED0A6813E6674902D37C85C359B000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+[CRYPTO] New derived key. 
+Id: msk_key;
+ Secret: 0x6B679AE17B8B40D4C9D5C67899AF07FDF31837C37D0BFD5A17BB7CA5D3465B3F1DA2CDFA38547C582A95B91FFC16A0E08EC98DD22A1D148EC7B0867C80F3B7D2
+
+[SM] Unbinded SE area
+[USER][HW-RUN TEK-MSK Derivation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN TEK-MSK Derivation] retval from SE: 0
+
+==================================================        TEK-MSK DERIVATION TEST COMPLETED         ==================================================
+
+==================================================        MAC_P GENERATION TEST STARTED             ==================================================
+Key id: auth_key
+[SM] Binded 0x244000 of size 4096
+[SM] Unbinded SE area
+[USER][HW-RUN] RAND_S Generated: 0x66470000485C0000B77D0000CA610000
+[SM] Binded 0x244000 of size 4096
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: keyID=0x238400
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: keyID primi 20 byte: auth_key
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: chiave 'auth_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_cmac_hw: INIZIO keyID='auth_key' len=64
+[CRYPTO-HW-VERIFY] ENCRYPT INPUT - plaintext primi 20 byte: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00  -> ASCII: '....................'[CRYPTO-HW-VERIFY] OUTPUT - CMAC primi 20 byte: 91 D0 32 9A 87 92 D8 6D 5F D8 A2 1D AF E7 2E 64 00 00 00 00 
+[CRYPTO-HW-DEBUG] aes_cmac_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN MAC_P Generation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN MAC_P Generation] retval from SE: 0
+[USER][HW-RUN] MAC_P Generated: 0x91D0329A8792D86D5FD8A21DAFE72E64
+
+==================================================        MAC_P GENERATION TEST COMPLETED           ==================================================
+
+==================================================        MAC_S GENERATION TEST STARTED             ==================================================
+Key id: auth_key
+[USER][HW-RUN] RAND_S Previously Generated: 0x66470000485C0000B77D0000CA610000
+[SM] Binded 0x244000 of size 4096
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: keyID=0x238400
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: keyID primi 20 byte: auth_key
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: chiave 'auth_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_cmac_hw: INIZIO keyID='auth_key' len=32
+[CRYPTO-HW-VERIFY] ENCRYPT INPUT - plaintext primi 20 byte: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 FF CC D1 00 00  -> ASCII: '....................'[CRYPTO-HW-VERIFY] OUTPUT - CMAC primi 20 byte: E9 BB B6 23 64 7B 94 54 17 F3 20 74 C1 88 99 81 00 00 00 00 
+[CRYPTO-HW-DEBUG] aes_cmac_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN MAC_S Generation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN MAC_S Generation] retval from SE: 0
+[USER][HW-RUN] MAC_S Generated: 0xE9BBB623647B945417F32074C1889981
+
+==================================================        MAC_S GENERATION TEST COMPLETED           ==================================================
+
+==================================================        EAP-PSK EAX ENCRYPTION TEST STARTED       ==================================================
+Key id: tek_key
+[SM] Binded 0x244000 of size 4096
+[SM] Unbinded SE area
+[SM] Binded 0x244000 of size 4096
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID=0x238400
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID primi 20 byte: tek_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: chiave 'tek_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: INIZIO keyID='tek_key' 
+[CRYPTO-HW-VERIFY][EAX] NONCE: 0x00000000
+[CRYPTO-HW-VERIFY][EAX] INPUT: 0x 80
+INPUT ASCII: .
+[CRYPTO-HW-VERIFY][EAX] HEADER: 0x0167003B2F8066470000485C0000B77D0000CA610000
+
+[SM_HW_EAX_ENC] Nonce CMAC in Encryption: 0xA77E309D1EF7E9AC81445F8EE6A7F4AE
+
+[SM_HW_EAX_ENC] Header CMAC in Encryption: 0x8D4D6D76D7CC1B04B478E8F5F8B7350C
+
+[SM_HW_EAX_ENC] Cipher CMAC in Encryption: 0x1AD5EA71CB3F030509FF8EF677EEF5A8
+[CRYPTO-HW-VERIFY] EAX SUCCEDED!
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN EAX Encryption] execute_se_service returned: value=0 error=0
+[USER][HW-RUN EAX Encryption] retval from SE: 0
+[USER][HW-RUN] EAX CipherText: 0xC0
+[USER][HW-RUN] EAX Tag: 0x30E6B79A0204F1AD3CC3398D69FE340A
+
+==================================================        EAP-PSK EAX ENCYRPTION TEST COMPL 	      ==================================================
+
+==================================================        EAP-PSK EAX DECRYPTION TEST STARTED       ==================================================
+Key id: tek_key
+[SM] Binded 0x244000 of size 4096
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID=0x238400
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID primi 20 byte: tek_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: chiave 'tek_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: INIZIO keyID='tek_key'
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] NONCE: 0x00000000
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] CIPHERTEXT: 0x C030E6B79A0204F1AD3CC3398D69FE340A
+CT ASCII: .0.......<.9.i.4.
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] HEADER: 0x0167003B2F8066470000485C0000B77D0000CA610000
+
+[SM_HW_EAX_DEC] in_len = 17
+[SM_HW_EAX_DEC] tag_len = 16
+[SM_HW_EAX_DEC] c_len = 1
+
+[SM_HW_EAX_DEC] Tweak Nonce in Decryption: 0x00000000000000000000000000000000
+
+[SM_HW_EAX_DEC] Nonce CMAC in Decryption: 0xA77E309D1EF7E9AC81445F8EE6A7F4AE
+[SM_HW_EAX_DEC] Tweak Header in Decryption: 0x00000000000000000000000000000001
+
+[SM_HW_EAX_DEC] Header CMAC in Decryption: 0x8D4D6D76D7CC1B04B478E8F5F8B7350C
+[SM_HW_EAX_DEC] Tweak Cipher in Decryption: 0x00000000000000000000000000000002
+
+[SM_HW_EAX_DEC] Cipher CMAC in Decryption: 0x1AD5EA71CB3F030509FF8EF677EEF5A8
+[SM_HW_EAX_DEC] Tag Obtained in Decryption: 0x30E6B79A0204F1AD3CC3398D69FE340A
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] TAG VALIDO 
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: FINE risultato 0 valid=1
+[SM] Unbinded SE area
+[USER][HW-RUN EAX Decryption] execute_se_service returned: value=0 error=0
+[USER][HW-RUN EAX Decryption] retval from SE: 0
+[USER][HW-RUN EAX Decryption] Tag is Valid
+[USER][HW-RUN] EAX Decryption Plaintext: 0x80
+
+==================================================        EAP-PSK EAX DECRYPTION TEST COMPL 	      ==================================================
+
+==================================================        	K DERIVATION TEST STARTED             ==================================================
+[USER][DEBUG] Key id to generate: k_key
+[SM] Binded 0x246000 of size 8192
+[ECALL KEY DERIVATION CKDF - AUTHORIZATION CHECKED]
+[ECALL KEY DERIVATION CKDF - PTR SANITY CHECKED]
+[CRYPTO-HW-DEBUG] derive_key_ckdf: Number of key to generate is 1 
+[CRYPTO-HW-DEBUG] derive_key_ckdf: Output Length to generate is 64 byte
+[CRYPTO-HW-VERIFY] INPUT - plaintext primi 20 byte: 4B 44 50 2D 41 54 00 00 00 00 00 00 00 00 00 00 00 00 00 00  -> ASCII: 'KDP-AT..............'[CRYPTO] New derived key. 
+Id: k_key;
+ Secret: 0x25BC536BDA30981E67D858EFD54DDA34AC3D6EA263417A524AE4A853466F79737841EE90B729EE2BE98DED89A3A52F964FEB9BFF48A36630C92C0D7ED4E19093
+
+[SM] Unbinded SE area
+[USER][HW-RUN K Derivation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN K Derivation] retval from SE: 0
+
+==================================================        	K DERIVATION TEST COMPLETED           ==================================================
+
+==================================================        	MKT DERIVATION TEST STARTED           ==================================================
+[USER][DEBUG] Key id to generate: mkt_key
+[SM] Binded 0x246000 of size 8192
+[ECALL KEY DERIVATION CKDF - AUTHORIZATION CHECKED]
+[ECALL KEY DERIVATION CKDF - PTR SANITY CHECKED]
+[CRYPTO-HW-DEBUG] derive_key_ckdf: Number of key to generate is 1 
+[CRYPTO-HW-DEBUG] derive_key_ckdf: Output Length to generate is 64 byte
+[CRYPTO-HW-VERIFY] INPUT - plaintext primi 20 byte: 4B 44 2D 4D 4B 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  -> ASCII: 'KD-MK...............'[CRYPTO] New derived key. 
+Id: mkt_key;
+ Secret: 0x92A3690C4A1C18D1343FC114EA4D4CBC4A204C40122672AD8DC7997D6CBB2842895657F821F10A4BFA17525AF52059B98CC09F527395A62EA55BB4FC618A68D3
+
+[SM] Unbinded SE area
+[USER][HW-RUN MKT Derivation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN MKT Derivation] retval from SE: 0
+
+==================================================        	MKT DERIVATION TEST COMPLETED         ==================================================
+
+==================================================        	SKAB DERIVATION TEST STARTED          ==================================================
+[USER][DEBUG] Key id to generate: skab_key
+[SM] Binded 0x246000 of size 8192
+[SM] Unbinded SE area
+[SM] Binded 0x246000 of size 8192
+[SM] Unbinded SE area
+[SM] Binded 0x246000 of size 8192
+[CRYPTO-HW-DEBUG] aes_ckdf_hw: INIZIO keyID='mkt_key' len=64
+[CRYPTO-HW-VERIFY] INPUT - plaintext primi 20 byte: 53 45 53 53 49 4F 4E 2D 41 42 00 00 00 00 00 00 00 00 00 00  -> ASCII: 'SESSION-AB..........'[CRYPTO-HW-VERIFY] OUTPUT - CKDF primi 20 byte: 8E 09 8B 45 19 29 A8 8C 38 0A 77 C7 73 F2 4D FD 09 9C 34 8D 
+[CRYPTO-HW-DEBUG] aes_ckdf_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN SKAB Derivation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN SKAB Derivation] retval from SE: 0
+[SKAB Derivation] The following Session Key has been generated: 0x8E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F97
+==================================================        	SKAB DERIVATION TEST COMPLETED        ==================================================
+
+==================================================            TICKETB ENCRYPT TEST STARTED          ==================================================
+[SM] Binded 0x246000 of size 8192
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID=0x238800
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID primi 20 byte: k_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: chiave 'k_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: INIZIO keyID='k_key' 
+[CRYPTO-HW-VERIFY][EAX] NONCE: 0x063E0000122900005F6C0000A61C0000
+[CRYPTO-HW-VERIFY][EAX] INPUT: 0x 618E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F978000000000000000000000000000000001063E0000122900005F6C0000A61C0000
+INPUT ASCII: a...E.)..8.w.s.M...4...<.hO......^..oA...6aS>{....N.`...5.o.D.....................>...).._l......
+[CRYPTO-HW-VERIFY][EAX] HEADER: 0x610000000000000000000000000000000100000000000000000000000000000002
+
+[SM_HW_EAX_ENC] Nonce CMAC in Encryption: 0xA9285789AFED9B2BD9062D04902219EB
+
+[SM_HW_EAX_ENC] Header CMAC in Encryption: 0x20669511482964A78E06524C96778645
+
+[SM_HW_EAX_ENC] Cipher CMAC in Encryption: 0x69CF7DC91CC809EE2A87E7C56214BB6C
+[CRYPTO-HW-VERIFY] EAX SUCCEDED!
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN KDP TicketB Generation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN KDP TicketB Generation] retval from SE: 0
+[KDP] TicketB Generation] Cipher Ticket generated: 0xEFA61F1F211ADFDB4215B04A6644698EEAFB5BDD62CCC189AB19A144EBDCAD8C1E51E47D6DA0782C9DA3825C9BB24B404D027B916C46395F3CA365FA3961DF0B43456BEC3FDC84DE1CA06BD3744CA6C8F63D8A096DA744924CAFCDCFB863A5843B
+[KDP] TicketN Generation] Tag Ticket generated: 0xE081BF51FB0CF6627D87988D644124
+==================================================        	TICKETB ENCRYPT TEST COMPLETED        ==================================================
+
+==================================================            MSG ENCRYPT TEST STARTED              ==================================================
+[SM] Binded 0x246000 of size 8192
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID=0x238800
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID primi 20 byte: k_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: chiave 'k_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: INIZIO keyID='k_key' 
+[CRYPTO-HW-VERIFY][EAX] NONCE: 0x063E0000122900005F6C0000A61C0000
+[CRYPTO-HW-VERIFY][EAX] INPUT: 0x 618E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F9780EFA61F1F211ADFDB4215B04A6644698EEAFB5BDD62CCC189AB19A144EBDCAD8C1E51E47D6DA0782C9DA3825C9BB24B404D027B916C46395F3CA365FA3961DF0B43456BEC3FDC84DE1CA06BD3744CA6C8F63D8A096DA744924CAFCDCFB863A5843BE081BF51FB0CF6627D87988D644124C2
+INPUT ASCII: a...E.)..8.w.s.M...4...<.hO......^..oA...6aS>{....N.`...5.o.D........!...B..JfDi...[.b......D.....Q.}m.x,...\..K@M.{.lF9_<.e.9a..CEk.?.....k.tL...=..m.D.L....c..;...Q...b}...dA$.
+[CRYPTO-HW-VERIFY][EAX] HEADER: 0x0210D2000000
+
+[SM_HW_EAX_ENC] Nonce CMAC in Encryption: 0xA9285789AFED9B2BD9062D04902219EB
+
+[SM_HW_EAX_ENC] Header CMAC in Encryption: 0xC7F0887A98CBF833A545B9D813E7DF4C
+
+[SM_HW_EAX_ENC] Cipher CMAC in Encryption: 0x0AB7D61FED9C183555607A85AD60858C
+[CRYPTO-HW-VERIFY] EAX SUCCEDED!
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN KDP MSG Encryption] execute_se_service returned: value=0 error=0
+[USER][HW-RUN KDP MSG Encryption] retval from SE: 0
+[KDP] MSG Encryption] Cipher Payload generated: 0xEFA61F1F211ADFDB4215B04A6644698EEAFB5BDD62CCC189AB19A144EBDCAD8C1E51E47D6DA0782C9DA3825C9BB24B404D027B916C46395F3CA365FA3961DF0B43AACDF320FD9E01C7E27E633E2AE2A179D14F52B0D7A153C55BB86EFC2E6529
+[KDP] MSG Encryption] Tag generated: 0x646F09ECDABA7B2D2923EE592EA543
+==================================================        	MSG ENCRYPT TEST COMPLETED            ==================================================
+
+==================================================            MSG DECRYPT TEST STARTED              ==================================================
+[KDP] MSG Decryption Before] Id_session: 0x61 
+[KDP] MSG Decryption Before] SK: 0x8E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F9780
+[KDP] MSG Decryption Before] Ticket: 0xEFA61F1F211ADFDB4215B04A6644698EEAFB5BDD62CCC189AB19A144EBDCAD8C1E51E47D6DA0782C9DA3825C9BB24B404D027B916C46395F3CA365FA3961DF0B43456BEC3FDC84DE1CA06BD3744CA6C8F63D8A096DA744924CAFCDCFB863A5843B
+[KDP] MSG Decryption Before] Tag: 0xE081BF51FB0CF6627D87988D644124C2
+[SM] Binded 0x246000 of size 8192
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID=0x238800
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID primi 20 byte: k_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: chiave 'k_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: INIZIO keyID='k_key'
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] NONCE: 0x063E0000122900005F6C0000A61C0000
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] CIPHERTEXT: 0x EFA61F1F211ADFDB4215B04A6644698EEAFB5BDD62CCC189AB19A144EBDCAD8C1E51E47D6DA0782C9DA3825C9BB24B404D027B916C46395F3CA365FA3961DF0B43AACDF320FD9E01C7E27E633E2AE2A179D14F52B0D7A153C55BB86EFC2E6529B70D69DF60AD6A214110BC26432481133F0643065887E587F484156736B09B39318D482D27DCDF133275F6F6294DBE5F2C2F6E6B4589031E37F3D85C242E62EFD94AFD56A4A690E128D2555D0E9AB85961D0646F09ECDABA7B2D2923EE592EA5432B
+CT ASCII: ....!...B..JfDi...[.b......D.....Q.}m.x,...\..K@M.{.lF9_<.e.9a..C... .....~c>*..y.OR...S.[.n..e)..i.`.j!A..&C$..?.C.X......g6..91.H-'...2u..)M._,/nkE...7..\$.b..J.V....(.U]...Ya.do....{-)#.Y..C+
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] HEADER: 0x0210D2000000
+
+[SM_HW_EAX_DEC] in_len = 194
+[SM_HW_EAX_DEC] tag_len = 16
+[SM_HW_EAX_DEC] c_len = 178
+
+[SM_HW_EAX_DEC] Tweak Nonce in Decryption: 0x00000000000000000000000000000000
+
+[SM_HW_EAX_DEC] Nonce CMAC in Decryption: 0xA9285789AFED9B2BD9062D04902219EB
+[SM_HW_EAX_DEC] Tweak Header in Decryption: 0x00000000000000000000000000000001
+
+[SM_HW_EAX_DEC] Header CMAC in Decryption: 0xC7F0887A98CBF833A545B9D813E7DF4C
+[SM_HW_EAX_DEC] Tweak Cipher in Decryption: 0x00000000000000000000000000000002
+
+[SM_HW_EAX_DEC] Cipher CMAC in Decryption: 0x0AB7D61FED9C183555607A85AD60858C
+[SM_HW_EAX_DEC] Tag Obtained in Decryption: 0x646F09ECDABA7B2D2923EE592EA5432B
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] TAG VALIDO 
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: FINE risultato 0 valid=1
+[SM] Unbinded SE area
+[USER][HW-RUN KDP MSG Decryption] execute_se_service returned: value=0 error=0
+[USER][HW-RUN KDP MSG Decryption] retval from SE: 0
+[KDP] MSG Decryption After] Id_session: 0x61 
+[KDP] MSG Decryption After] SK: 0x8E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F9780
+[KDP] MSG Decryption After] Ticket: 0xEFA61F1F211ADFDB4215B04A6644698EEAFB5BDD62CCC189AB19A144EBDCAD8C1E51E47D6DA0782C9DA3825C9BB24B404D027B916C46395F3CA365FA3961DF0B43456BEC3FDC84DE1CA06BD3744CA6C8F63D8A096DA744924CAFCDCFB863A5843B
+[KDP] MSG Decryption After] Tag: 0xE081BF51FB0CF6627D87988D644124C2
+
+==================================================        	MSG DECRYPT TEST COMPLETED            ==================================================
+
+==================================================            TICKETB DECRYPT TEST STARTED          ==================================================
+[KDP][MSG #2] Id_session: 0x61
+[KDP][MSG #2] SessionKey: 0x8E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F9780
+[KDP][MSG #2] ID-DeviceA (sender): 0x00000000000000000000000000000001
+[KDP][MSG #2] NonceT (Generated by Trusted): 0x063E0000122900005F6C0000A61C0000
+[SM] Binded 0x246000 of size 8192
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID=0x238800
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID primi 20 byte: k_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: chiave 'k_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: INIZIO keyID='k_key'
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] NONCE: 0x063E0000122900005F6C0000A61C0000
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] CIPHERTEXT: 0x EFA61F1F211ADFDB4215B04A6644698EEAFB5BDD62CCC189AB19A144EBDCAD8C1E51E47D6DA0782C9DA3825C9BB24B404D027B916C46395F3CA365FA3961DF0B43456BEC3FDC84DE1CA06BD3744CA6C8F63D8A096DA744924CAFCDCFB863A5843BE081BF51FB0CF6627D87988D644124C2
+CT ASCII: ....!...B..JfDi...[.b......D.....Q.}m.x,...\..K@M.{.lF9_<.e.9a..CEk.?.....k.tL...=..m.D.L....c..;...Q...b}...dA$.
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] HEADER: 0x610000000000000000000000000000000100000000000000000000000000000002
+
+[SM_HW_EAX_DEC] in_len = 113
+[SM_HW_EAX_DEC] tag_len = 16
+[SM_HW_EAX_DEC] c_len = 97
+
+[SM_HW_EAX_DEC] Tweak Nonce in Decryption: 0x00000000000000000000000000000000
+
+[SM_HW_EAX_DEC] Nonce CMAC in Decryption: 0xA9285789AFED9B2BD9062D04902219EB
+[SM_HW_EAX_DEC] Tweak Header in Decryption: 0x00000000000000000000000000000001
+
+[SM_HW_EAX_DEC] Header CMAC in Decryption: 0x20669511482964A78E06524C96778645
+[SM_HW_EAX_DEC] Tweak Cipher in Decryption: 0x00000000000000000000000000000002
+
+[SM_HW_EAX_DEC] Cipher CMAC in Decryption: 0x69CF7DC91CC809EE2A87E7C56214BB6C
+[SM_HW_EAX_DEC] Tag Obtained in Decryption: 0xE081BF51FB0CF6627D87988D644124C2
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] TAG VALIDO 
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: FINE risultato 0 valid=1
+[SM] Unbinded SE area
+[USER][HW-RUN KDP TicketB Decryption] execute_se_service returned: value=0 error=0
+[USER][HW-RUN KDP TicketB Decryption] retval from SE: 0
+[KDP][TicketB Decryption] Tag received is VALID
+[KDP][TicketB Decryption] PlainTicket obtained
+[KDP][TicketB Decryption] Id_session: 0x61
+[KDP][TicketB Decryption] SessionKey: 0x8E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F9780
+[KDP][TicketB Decryption] ID-DeviceA (sender): 0x00000000000000000000000000000001
+[KDP][TicketB Decryption] NonceT (Generated by Trusted): 0x063E0000122900005F6C0000A61C0000
+
+==================================================        	TICKETB DECRYPT TEST COMPLETED        ==================================================
+
+==================================================            SAVE SKAB TEST STARTED                ==================================================
+[SM] Binded 0x246000 of size 8192
+[CRYPTO] New derived key. 
+Id: skab_key;
+ Secret: 0x8E098B451929A88C380A77C773F24DFD099C348D888D3C1E684FCC0411F3C6CD5E81F06F418C068A3661533E7BD3A4AED94E0760C8B11F35B26F9044998F9780
+[SM] Unbinded SE area
+[USER][HW-RUN KDP Save SessionKey] execute_se_service returned: value=0 error=0
+[USER][HW-RUN KDP Save SessionKey] retval from SE: 0
+
+==================================================        	SAVE SKAB TEST COMPLETED              ==================================================
+
+==================================================            MAC GEN TEST STARTED                  ==================================================
+[SM] Binded 0x246000 of size 8192
+[SM] Unbinded SE area
+[SM] Binded 0x246000 of size 8192
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: keyID=0x238800
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: keyID primi 20 byte: skab_key
+[BACKEND-HW-DEBUG] sm_hw_aes_cmac: chiave 'skab_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_cmac_hw: INIZIO keyID='skab_key' len=17
+[CRYPTO-HW-VERIFY] ENCRYPT INPUT - plaintext primi 20 byte: 61 B7 9B 00 00 77 D2 00 00 1A C0 00 00 A2 2F 00 00  -> ASCII: 'a....w......../..'[CRYPTO-HW-VERIFY] OUTPUT - CMAC primi 20 byte: 03 DE 7F C2 7E 11 55 96 34 8D 95 D2 25 5C FF 74 01 
+[CRYPTO-HW-DEBUG] aes_cmac_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN KDP MAC Generation] execute_se_service returned: value=0 error=0
+[USER][HW-RUN KDP MAC Generation] retval from SE: 0
+[KDP][MAC Generation] Mac has been generated: 0x03DE7FC27E115596348D95D2255CFF74
+
+==================================================        	MAC GEN TEST COMPLETED                ==================================================
+
+==================================================            APPL MSG ENCRYPT TEST STARTED         ==================================================
+[SM] Binded 0x246000 of size 8192
+[SM] Unbinded SE area
+[SM] Binded 0x246000 of size 8192
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID=0x238800
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: keyID primi 20 byte: skab_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_encrypt: chiave 'skab_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: INIZIO keyID='skab_key' 
+[CRYPTO-HW-VERIFY][EAX] NONCE: 0x055D0000FD5B00001DCC00003FA10000
+[CRYPTO-HW-VERIFY][EAX] INPUT: 0x 7B0A2020226D6561737572656D656E745F74797065223A2022706F7765725F636F6E73756D7074696F6E222C0A20202276616C7565223A20332E37322C0A202022756E6974223A20226B5768222C0A202022696E74657276616C223A202231356D696E220A7D
+INPUT ASCII: {.  "measurement_type": "power_consumption",.  "value": 3.72,.  "unit": "kWh",.  "interval": "15min".}
+[CRYPTO-HW-VERIFY][EAX] HEADER: 0x
+
+[SM_HW_EAX_ENC] Nonce CMAC in Encryption: 0xA4AF04F8DF03B551485DFD231C4B8B10
+
+[SM_HW_EAX_ENC] Header CMAC in Encryption: 0x361CC9BC1C721D6C26CC5A66CED9F905
+
+[SM_HW_EAX_ENC] Cipher CMAC in Encryption: 0x6B9D5C34620F60E5009F6FA95D4757BE
+[CRYPTO-HW-VERIFY] EAX SUCCEDED!
+[CRYPTO-HW-DEBUG] aes_eax_encrypt_hw: FINE risultato 0
+[SM] Unbinded SE area
+[USER][HW-RUN APPL MSG Encryption] execute_se_service returned: value=0 error=0
+[USER][HW-RUN APPL MSG Encryption] retval from SE: 0
+[KDP] APPLICATION MSG Encryption] Payload encrypted: 0x7D62EA62F9D0597E900BE5FD2CD4ADA18816855680577CCF7DFD777DD5DD0735D9A65B8C2B5E86212AD14BE2F4D8A7672F7BDB8801AFB49030562C66A563EA226AE4CB2AC4F5A5367DBFF488775206574CD3B85285D3C4339AEFBF3100350316D61A11700F49
+[KDP] APPLICATION MSG Encryption] Tag: 0xF92E9170A17EC8D86E0EC8EC8FD525AB
+
+==================================================        	APPL MSG ENCRYPT TEST COMPLETED       ==================================================
+
+==================================================            APPL MSG DECRYPT TEST STARTED         ==================================================
+[SM] Binded 0x246000 of size 8192
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID=0x238800
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: keyID primi 20 byte: skab_key
+[BACKEND-HW-DEBUG] sm_hw_aes_eax_decrypt: chiave 'skab_key' ESISTE
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: INIZIO keyID='skab_key'
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] NONCE: 0x055D0000FD5B00001DCC00003FA10000
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] CIPHERTEXT: 0x 7D62EA62F9D0597E900BE5FD2CD4ADA18816855680577CCF7DFD777DD5DD0735D9A65B8C2B5E86212AD14BE2F4D8A7672F7BDB8801AFB49030562C66A563EA226AE4CB2AC4F5A5367DBFF488775206574CD3B85285D3C4339AEFBF3100350316D61A11700F49F92E9170A17EC8D86E0EC8EC8FD525AB
+CT ASCII: }b.b..Y~....,......V.W|.}.w}...5..[.+^.!*.K....g/{......0V,f.c."j..*...6}...wR.WL..R...3...1.5.....p.I...p.~..n.....%.
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] HEADER: 0x
+
+[SM_HW_EAX_DEC] in_len = 118
+[SM_HW_EAX_DEC] tag_len = 16
+[SM_HW_EAX_DEC] c_len = 102
+
+[SM_HW_EAX_DEC] Tweak Nonce in Decryption: 0x00000000000000000000000000000000
+
+[SM_HW_EAX_DEC] Nonce CMAC in Decryption: 0xA4AF04F8DF03B551485DFD231C4B8B10
+[SM_HW_EAX_DEC] Tweak Header in Decryption: 0x00000000000000000000000000000001
+
+[SM_HW_EAX_DEC] Header CMAC in Decryption: 0x361CC9BC1C721D6C26CC5A66CED9F905
+[SM_HW_EAX_DEC] Tweak Cipher in Decryption: 0x00000000000000000000000000000002
+
+[SM_HW_EAX_DEC] Cipher CMAC in Decryption: 0x6B9D5C34620F60E5009F6FA95D4757BE
+[SM_HW_EAX_DEC] Tag Obtained in Decryption: 0xF92E9170A17EC8D86E0EC8EC8FD525AB
+[CRYPTO-HW-VERIFY][EAX-DECRYPT] TAG VALIDO 
+[CRYPTO-HW-DEBUG] aes_eax_decrypt_hw: FINE risultato 0 valid=1
+[SM] Unbinded SE area
+[USER][HW-RUN APPL MSG Decryption] execute_se_service returned: value=0 error=0
+[USER][HW-RUN APPL MSG Decryption] retval from SE: 0
+[KDP] APPLICATION MSG Decryption] Payload decrypted: {
+  "measurement_type": "power_consumption",
+  "value": 3.72,
+  "unit": "kWh",
+  "interval": "15min"
+}
+
+==================================================        	APPL MSG DECRYPT TEST COMPLETED       ==================================================
+[PROFILER] 103 executions were profiled:
+	crypto_key_derivation: 56034 clocks | 51463 instructions
+	crypto_key_derivation: 51502 clocks | 46940 instructions
+	sm_modules_startup: 174919 clocks | 145453 instructions
+	crypto_digest_data: 502458 clocks | 473900 instructions
+	crypto_digest_data: 502458 clocks | 473900 instructions
+	crypto_auth_data: 26328 clocks | 23855 instructions
+	sm_ase_boot: 1060991 clocks | 993277 instructions
+	crypto_digest_data: 127382 clocks | 120084 instructions
+	crypto_digest_data: 292754 clocks | 276105 instructions
+	crypto_digest_data: 127382 clocks | 120084 instructions
+	crypto_auth_data: 26328 clocks | 23855 instructions
+	crypto_digest_data: 292754 clocks | 276105 instructions
+	crypto_auth_data: 26328 clocks | 23855 instructions
+	hw_aes_encrypt_mctr: 1562 clocks | 1142 instructions
+	crypto_key_derivation_mctr: 68350 clocks | 47068 instructions
+	hw_aes_encrypt_mctr: 2831 clocks | 2075 instructions
+	crypto_key_derivation_mctr: 73667 clocks | 51019 instructions
+	hw_aes_cmac_subkey: 1540 clocks | 1104 instructions
+	hw_aes_cmac: 4144 clocks | 3042 instructions
+	crypto_aes_cmac_hw: 26047 clocks | 18021 instructions
+	hw_aes_cmac_subkey: 1540 clocks | 1104 instructions
+	hw_aes_cmac: 3083 clocks | 2250 instructions
+	crypto_aes_cmac_hw: 24959 clocks | 17217 instructions
+	hw_aes_cmac_subkey: 1540 clocks | 1104 instructions
+	hw_aes_cmac_with_keys: 1500 clocks | 1119 instructions
+	hw_aes_cmac_with_keys: 2040 clocks | 1525 instructions
+	hw_aes_encrypt_ctr: 807 clocks | 579 instructions
+	hw_aes_cmac_with_keys: 1498 clocks | 1116 instructions
+	hw_aes_eax_encrypt: 28072 clocks | 19764 instructions
+	crypto_aes_eax_encrypt_hw: 45988 clocks | 32083 instructions
+	hw_aes_cmac_subkey: 1540 clocks | 1104 instructions
+	hw_aes_cmac_with_keys: 1500 clocks | 1119 instructions
+	hw_aes_cmac_with_keys: 2040 clocks | 1525 instructions
+	hw_aes_cmac_with_keys: 1498 clocks | 1116 instructions
+	hw_aes_encrypt_ctr: 807 clocks | 579 instructions
+	hw_aes_eax_decrypt: 60718 clocks | 42230 instructions
+	crypto_aes_eax_decrypt_hw: 84767 clocks | 58740 instructions
+	hw_aes_cmac_subkey: 1540 clocks | 1104 instructions
+	hw_aes_cmac_with_keys: 2069 clocks | 1546 instructions
+	hw_aes_cmac_with_keys: 2069 clocks | 1546 instructions
+	hw_aes_cmac_with_keys: 2069 clocks | 1546 instructions
+	hw_aes_cmac_with_keys: 2069 clocks | 1546 instructions
+	hw_aes_ckdf: 10417 clocks | 7764 instructions
+	crypto_key_derivation_ckdf: 62875 clocks | 43941 instructions
+	hw_aes_cmac_subkey: 1463 clocks | 1045 instructions
+	hw_aes_cmac_with_keys: 1532 clocks | 1139 instructions
+	hw_aes_cmac_with_keys: 1532 clocks | 1139 instructions
+	hw_aes_cmac_with_keys: 1532 clocks | 1139 instructions
+	hw_aes_cmac_with_keys: 1532 clocks | 1139 instructions
+	hw_aes_ckdf: 8193 clocks | 6074 instructions
+	crypto_key_derivation_ckdf: 55629 clocks | 38756 instructions
+	hw_aes_cmac_subkey: 1502 clocks | 1075 instructions
+	hw_aes_cmac_with_keys: 3231 clocks | 2408 instructions
+	hw_aes_cmac_with_keys: 3231 clocks | 2408 instructions
+	hw_aes_cmac_with_keys: 3231 clocks | 2408 instructions
+	hw_aes_cmac_with_keys: 3231 clocks | 2408 instructions
+	hw_aes_ckdf: 15045 clocks | 11198 instructions
+	crypto_aes_ckdf_hw: 40141 clocks | 28472 instructions
+	hw_aes_cmac_subkey: 1501 clocks | 1074 instructions
+	hw_aes_cmac_with_keys: 1520 clocks | 1132 instructions
+	hw_aes_cmac_with_keys: 2591 clocks | 1940 instructions
+	hw_aes_encrypt_ctr: 4131 clocks | 3087 instructions
+	hw_aes_cmac_with_keys: 4773 clocks | 3586 instructions
+	hw_aes_eax_encrypt: 35456 clocks | 25343 instructions
+	crypto_aes_eax_encrypt_hw: 99300 clocks | 69361 instructions
+	hw_aes_cmac_subkey: 1501 clocks | 1074 instructions
+	hw_aes_cmac_with_keys: 1520 clocks | 1132 instructions
+	hw_aes_cmac_with_keys: 1518 clocks | 1131 instructions
+	hw_aes_encrypt_ctr: 6912 clocks | 5186 instructions
+	hw_aes_cmac_with_keys: 7529 clocks | 5661 instructions
+	hw_aes_eax_encrypt: 40010 clocks | 28792 instructions
+	crypto_aes_eax_encrypt_hw: 123999 clocks | 86801 instructions
+	hw_aes_cmac_subkey: 1501 clocks | 1074 instructions
+	hw_aes_cmac_with_keys: 1520 clocks | 1132 instructions
+	hw_aes_cmac_with_keys: 1518 clocks | 1131 instructions
+	hw_aes_cmac_with_keys: 7529 clocks | 5661 instructions
+	hw_aes_encrypt_ctr: 6912 clocks | 5186 instructions
+	hw_aes_eax_decrypt: 78662 clocks | 55700 instructions
+	crypto_aes_eax_decrypt_hw: 168731 clocks | 117867 instructions
+	hw_aes_cmac_subkey: 1501 clocks | 1074 instructions
+	hw_aes_cmac_with_keys: 1520 clocks | 1132 instructions
+	hw_aes_cmac_with_keys: 2591 clocks | 1940 instructions
+	hw_aes_cmac_with_keys: 4773 clocks | 3586 instructions
+	hw_aes_encrypt_ctr: 4131 clocks | 3087 instructions
+	hw_aes_eax_decrypt: 72117 clocks | 50780 instructions
+	crypto_aes_eax_decrypt_hw: 141811 clocks | 98856 instructions
+	hw_aes_cmac_subkey: 1463 clocks | 1045 instructions
+	hw_aes_cmac: 3069 clocks | 2230 instructions
+	crypto_aes_cmac_hw: 26760 clocks | 18572 instructions
+	hw_aes_cmac_subkey: 1463 clocks | 1045 instructions
+	hw_aes_cmac_with_keys: 1520 clocks | 1132 instructions
+	hw_aes_cmac_with_keys: 955 clocks | 709 instructions
+	hw_aes_encrypt_ctr: 4186 clocks | 3132 instructions
+	hw_aes_cmac_with_keys: 4793 clocks | 3601 instructions
+	hw_aes_eax_encrypt: 33810 clocks | 24106 instructions
+	crypto_aes_eax_encrypt_hw: 88558 clocks | 61911 instructions
+	hw_aes_cmac_subkey: 1463 clocks | 1045 instructions
+	hw_aes_cmac_with_keys: 1520 clocks | 1132 instructions
+	hw_aes_cmac_with_keys: 955 clocks | 709 instructions
+	hw_aes_cmac_with_keys: 4793 clocks | 3601 instructions
+	hw_aes_encrypt_ctr: 4186 clocks | 3132 instructions
+	hw_aes_eax_decrypt: 72462 clocks | 51014 instructions
+	crypto_aes_eax_decrypt_hw: 133398 clocks | 93065 instructions

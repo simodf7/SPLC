@@ -1,0 +1,3 @@
+VCSoC_top_cv32e40s_if_c_obi__DepSet_h3b768ba4__0__Slow.o: \
+ VCSoC_top_cv32e40s_if_c_obi__DepSet_h3b768ba4__0__Slow.cpp \
+ VCSoC_top__pch.h VCSoC_top_cv32e40s_if_c_obi.h

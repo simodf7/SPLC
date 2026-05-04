@@ -1,0 +1,90 @@
+// Verilated -*- C++ -*-
+// DESCRIPTION: Verilator output: Symbol table internal header
+//
+// Internal details; most calling programs do not need this header,
+// unless using verilator public meta comments.
+
+#ifndef VERILATED_VCSOC_TOP__SYMS_H_
+#define VERILATED_VCSOC_TOP__SYMS_H_  // guard
+
+#include "verilated.h"
+
+// INCLUDE MODEL CLASS
+
+#include "VCSoC_top.h"
+
+// INCLUDE MODULE CLASSES
+#include "VCSoC_top___024root.h"
+#include "VCSoC_top___024unit.h"
+#include "VCSoC_top_cv32e40s_if_c_obi.h"
+#include "VCSoC_top_cv32e40s_if_c_obi__Tz12_TBz13.h"
+#include "VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25.h"
+#include "VCSoC_top_cv32e40s_csr__pi18.h"
+#include "VCSoC_top_cv32e40s_pmp__P0_PB10.h"
+
+// DPI TYPES for DPI Export callbacks (Internal use)
+using VCSoC_top__Vcb_simutil_get_mem_t = void (*) (VCSoC_top__Syms* __restrict vlSymsp, IData/*31:0*/ index, VlWide<10>/*311:0*/ &val, IData/*31:0*/ &simutil_get_mem__Vfuncrtn);
+using VCSoC_top__Vcb_simutil_memload_t = void (*) (VCSoC_top__Syms* __restrict vlSymsp, std::string file);
+using VCSoC_top__Vcb_simutil_set_mem_t = void (*) (VCSoC_top__Syms* __restrict vlSymsp, IData/*31:0*/ index, VlWide<10>/*311:0*/ val, IData/*31:0*/ &simutil_set_mem__Vfuncrtn);
+
+// SYMS CLASS (contains all model state)
+class alignas(VL_CACHE_LINE_BYTES)VCSoC_top__Syms final : public VerilatedSyms {
+  public:
+    // INTERNAL STATE
+    VCSoC_top* const __Vm_modelp;
+    VlDeleter __Vm_deleter;
+    bool __Vm_didInit = false;
+
+    // MODULE INSTANCE STATE
+    VCSoC_top___024root            TOP;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__0__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__0__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__10__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__10__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__11__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__11__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__12__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__12__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__13__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__13__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__14__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__14__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__15__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__15__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__1__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__1__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__2__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__2__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__3__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__3__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__4__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__4__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__5__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__5__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__6__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__6__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__7__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__7__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__8__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__8__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_csr__pi18   TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__9__KET____DOT__pmp_region__DOT__pmp_addr_csr_i;
+    VCSoC_top_cv32e40s_csr__W8_Mz24_S1_Rz25 TOP__CSoC_top__DOT__u_core__DOT__cs_registers_i__DOT__csr_pmp__DOT__gen_pmp_csr__BRA__9__KET____DOT__pmp_region__DOT__pmpncfg_csr_i;
+    VCSoC_top_cv32e40s_pmp__P0_PB10 TOP__CSoC_top__DOT__u_core__DOT__if_stage_i__DOT__mpu_i__DOT__pmp__DOT__pmp_i;
+    VCSoC_top_cv32e40s_pmp__P0_PB10 TOP__CSoC_top__DOT__u_core__DOT__load_store_unit_i__DOT__mpu_i__DOT__pmp__DOT__pmp_i;
+    VCSoC_top_cv32e40s_if_c_obi__Tz12_TBz13 TOP__CSoC_top__DOT__u_core__DOT__m_c_obi_data_if;
+    VCSoC_top_cv32e40s_if_c_obi    TOP__CSoC_top__DOT__u_core__DOT__m_c_obi_instr_if;
+
+    // SCOPE NAMES
+    VerilatedScope __Vscope_CSoC_top__u_ram__u_ram;
+    VerilatedScope __Vscope_CSoC_top__u_ram__u_ram__unnamedblk3;
+    VerilatedScope __Vscope_CSoC_top__u_ram__u_ram__unnamedblk3__gen_meminit;
+
+    // CONSTRUCTORS
+    VCSoC_top__Syms(VerilatedContext* contextp, const char* namep, VCSoC_top* modelp);
+    ~VCSoC_top__Syms();
+
+    // METHODS
+    const char* name() { return TOP.name(); }
+};
+
+#endif  // guard
