@@ -1,3 +1,0 @@
-VCSoC_top_cv32e40s_pmp__P0_PB10__DepSet_hb0fb5163__0.o: \
- VCSoC_top_cv32e40s_pmp__P0_PB10__DepSet_hb0fb5163__0.cpp \
- VCSoC_top__pch.h VCSoC_top__Syms.h VCSoC_top_cv32e40s_pmp__P0_PB10.h
